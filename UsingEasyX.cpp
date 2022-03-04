@@ -70,9 +70,9 @@ static int TurnLua(lua_State* L)
 	MoImage* image = ImgArray[i];
 	image->rotation -= d;
 
-	if(image->rotation >= PI)//控制弧度在2PI之内
+	if(image->rotation >= 2*PI)//控制弧度在2PI之内
 	{
-		image->rotation -= PI;
+		image->rotation -= 2*PI;
 	}
 	rotateimage(image->img, image->img, -d, BLACK, false, true);
 	cleardevice();
