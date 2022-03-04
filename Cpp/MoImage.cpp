@@ -1,5 +1,4 @@
 #include "MoImage.h"
-
 #include <iostream>
 
 MoImage::MoImage():img(new IMAGE),x(0),y(0)

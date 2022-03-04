@@ -3,6 +3,8 @@
 #include <conio.h>
 #include <string>
 using namespace std;
+
+//自定义的可移动图片类，包含x，y坐标，id，旋转弧度等字段。
 class MoImage
 {
 public:

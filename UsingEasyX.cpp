@@ -10,22 +10,13 @@
 #define PI 3.1415926535
 
 using namespace std;
-static int x = 200;
-static int y = 200;
 
-//静态的vector和id用来保存场景中的对象
+//静态的vector和id用来保存场景中的对象，id为在数组中的索引
 static vector<MoImage*> ImgArray(100);
 static int id = 0;
 
-static IMAGE* CreateObject(string path,int x,int y)
-{
-	IMAGE* img=new IMAGE;
-	loadimage(img, path.c_str(), 50, 50, true);
-	putimage(x, y, img);
-	Resize(img, 50, 50);
-	return img;
-}
 
+//CreateObject函数
 static int CreateObjectLua(lua_State* L)
 {
 	//取出三个参数
@@ -50,6 +41,7 @@ static int CreateObjectLua(lua_State* L)
 	return 1;
 }
 
+//Move函数，默认步长5个像素
 static int MoveLua(lua_State* L)
 {
 	int i = lua_tonumber(L, 1);
@@ -69,13 +61,16 @@ static int MoveLua(lua_State* L)
 	return 0;
 }
 
+//Turn，默认的正向是Y轴负方向，旋转角度为顺时针
 static int TurnLua(lua_State* L)
 {
 	int i = lua_tonumber(L, 1);
 	float d = lua_tonumber(L, 2);
+
 	MoImage* image = ImgArray[i];
 	image->rotation -= d;
-	if(image->rotation >= PI)
+
+	if(image->rotation >= PI)//控制弧度在2PI之内
 	{
 		image->rotation -= PI;
 	}
@@ -92,6 +87,7 @@ static int SlideToLua(lua_State* L)
 	int x = lua_tonumber(L, 2);
 	int y = lua_tonumber(L, 3);
 	double speed = lua_tonumber(L, 4);
+
 	MoImage* img = ImgArray[i];
 	int deltaX = x - img->x;
 	int deltaY = y - img->y;
@@ -130,6 +126,7 @@ int main()
 	initgraph(1280, 720);
 	lua_State* L = luaL_newstate();
 	luaL_openlibs(L);
+	//lua 注册
 	lua_register(L, "CreateObject", CreateObjectLua);
 	lua_register(L, "Move", MoveLua);
 	lua_register(L, "Turn", TurnLua);
