@@ -7,4 +7,7 @@ PI = 3.1415926535
 
 print("hello?")
 local img=MoImage.CreateObject(".\\Resource\\Smile.jpg", 200, 200)
-img:Move(5)
+img:SlideTo(0,0,0.01)
+
+--img:Move(5)
+--img:Turn(PI/3)

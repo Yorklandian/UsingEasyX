@@ -10,12 +10,14 @@ static const luaL_Reg lua_reg_libs[]
 	{"MoImage",lua_open_image_libs},
 	{NULL,NULL}
 };
+
 int main()
 {
 	initgraph(1280, 720, EW_SHOWCONSOLE);
 
 	lua_State* L = luaL_newstate();
 	const luaL_Reg* lua_reg = lua_reg_libs;
+	//зЂВс
 	for(;lua_reg->func;++lua_reg)
 	{
 		luaL_requiref(L, lua_reg->name, lua_reg->func, 1);

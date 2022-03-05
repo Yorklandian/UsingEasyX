@@ -25,11 +25,16 @@ int lua_create_object(lua_State* L)
 	return 1;
 };
 
+
+//move，turn和slideTo是成员函数
 int lua_move(lua_State* L)
 {
+
+	//取出成员函数的第一个参数：对象的this指针
 	MoImage** m = (MoImage**)luaL_checkudata(L, 1, "MoImageClass");
 	luaL_argcheck(L, m != NULL, 1, "Invalid user data");
 
+	//取出传入的参数
 	int steps = lua_tonumber(L, 2);
 	(*m)->Move(steps);
 	return 0;
@@ -69,13 +74,20 @@ int lua_aoto_gc(lua_State* L)
 	return 0;
 };
 
+
+//新建元表和模块
 int lua_open_image_libs(lua_State* L)
 {
+	//新建元表
 	luaL_newmetatable(L, "MoImageClass");
+	//复制这个元表并放在-1
 	lua_pushvalue(L, -1);
+	//将-1的元表设为-2位置元表的字段
 	lua_setfield(L, -2, "__index");
+	//设置元表成员函数
 	luaL_setfuncs(L, lua_reg_image_member_funcs, 0);
 
+	//新建模块，仅包含create
 	luaL_newlib(L, lua_reg_image_create_funcs);
 	return 1;
 };
