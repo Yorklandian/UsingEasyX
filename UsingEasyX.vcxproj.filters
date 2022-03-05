@@ -21,6 +21,12 @@
     <ClCompile Include="Cpp\MoImage.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Cpp\MOImageRegFunc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Cpp\OOMain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resource\Smile.jpg">
@@ -31,8 +37,12 @@
     <ClInclude Include="Cpp\MoImage.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Cpp\MoImageRegFunc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Lua.lua" />
+    <None Include="Scripts\lua2.lua" />
   </ItemGroup>
 </Project>

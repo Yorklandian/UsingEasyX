@@ -121,25 +121,25 @@ static int SlideToLua(lua_State* L)
 
 
 
-int main()
-{
-	initgraph(1280, 720);
-	lua_State* L = luaL_newstate();
-	luaL_openlibs(L);
-	//lua 注册
-	lua_register(L, "CreateObject", CreateObjectLua);
-	lua_register(L, "Move", MoveLua);
-	lua_register(L, "Turn", TurnLua);
-	lua_register(L, "SlideTo", SlideToLua);
-	luaL_dofile(L, ".\\Scripts\\Lua.lua");
-	lua_close(L);
-	while(true)
-	{
-		if (_kbhit())
-			break;
-	}
-	closegraph();
-	return 0;
-}
+//int main()
+//{
+//	initgraph(1280, 720);
+//	lua_State* L = luaL_newstate();
+//	luaL_openlibs(L);
+//	//lua 注册
+//	lua_register(L, "CreateObject", CreateObjectLua);
+//	lua_register(L, "Move", MoveLua);
+//	lua_register(L, "Turn", TurnLua);
+//	lua_register(L, "SlideTo", SlideToLua);
+//	luaL_dofile(L, ".\\Scripts\\Lua.lua");
+//	lua_close(L);
+//	while(true)
+//	{
+//		if (_kbhit())
+//			break;
+//	}
+//	closegraph();
+//	return 0;
+//}
 
 

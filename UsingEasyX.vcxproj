@@ -143,6 +143,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Cpp\MoImage.cpp" />
+    <ClCompile Include="Cpp\MOImageRegFunc.cpp" />
+    <ClCompile Include="Cpp\OOMain.cpp" />
     <ClCompile Include="UsingEasyX.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -150,9 +152,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cpp\MoImage.h" />
+    <ClInclude Include="Cpp\MoImageRegFunc.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Lua.lua" />
+    <None Include="Scripts\lua2.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
