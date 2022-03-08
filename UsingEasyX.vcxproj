@@ -157,6 +157,7 @@
   <ItemGroup>
     <None Include="Scripts\Lua.lua" />
     <None Include="Scripts\lua2.lua" />
+    <None Include="Scripts\task_manager.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
