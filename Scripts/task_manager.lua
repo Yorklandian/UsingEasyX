@@ -1,7 +1,7 @@
 ---@class Task
 ---@field name string @ task name
 ---@field thread Thread @ task coroutine
----@field async AsyncAction @��װ����Ҫִ�еĺ���
+---@field async AsyncAction 
 --- 
 ---@class TaskManager
 ---@field _waits Task[]
@@ -11,11 +11,11 @@
 ---@field start fun()
 ---
 ---@class AsyncAction
----@field __async boolean @�Ƿ�Ҫ�첽
----@field respond fun(requestVal):any @����ִ�еĺ�����
+---@field __async boolean 
+---@field respond fun(requestVal):any 
 ---@field isReady fun():boolean
----@field requestVal any @���룿
----@field respondVal any @���
+---@field requestVal any 
+---@field respondVal any 
 ---
 ---@type TaskManager
 local _gTaskManager = nil
